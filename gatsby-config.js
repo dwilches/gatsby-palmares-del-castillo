@@ -1,8 +1,8 @@
 module.exports = {
   siteMetadata: {
-    title: `Gatsby Starter Photo Book`,
-    description: `Share your photosets with style.`,
-    author: `baobabKoodaa`,
+    title: `Palmares del Castillo`,
+    description: `Fotos de nuestra casa en venta`,
+    author: `Daniel Wilches`,
   },
   plugins: [
     {

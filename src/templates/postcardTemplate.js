@@ -88,6 +88,8 @@ class PostcardTemplate extends React.Component {
     } else if (event.keyCode === 39) {
       /* Right arrow. */
       navigate(`/images/${this.state.pageContext.nextId}`, { state: this.getStatePassForNext() })
+    } else if (event.keyCode === 27) {
+      navigate(`/`)
     }
   }
 
@@ -181,7 +183,7 @@ class PostcardTemplate extends React.Component {
       <>
         <Helmet>
           <meta charSet="utf-8" />
-          <title>{`Photo from Gatsby Starter Photo Book` /* Note: not a good idea to put image id here (needs JS to render the correct id). */}</title>
+          <title>{`Palmares del Castillo` /* Note: not a good idea to put image id here (needs JS to render the correct id). */}</title>
           
           <style>
             {/* 
@@ -227,15 +229,15 @@ class PostcardTemplate extends React.Component {
 
                   {/* Navbuttons: prev/next (even though clicking anywhere on the page works, we want to help the user understand what they can do). */}
                   <Link to={`/images/${c.prevId}`} state={this.getStatePassForPrev()} >
-                    <FaArrowLeft className="arrowButtons" style={{ left: "10px", top: "50%", transform: "translateY(-50%)" }} title="Previous photo" />
+                    <FaArrowLeft className="arrowButtons" style={{ left: "10px", top: "50%", transform: "translateY(-50%)" }} title="Foto anterior" />
                   </Link>
                   <Link to={`/images/${c.nextId}`} state={this.getStatePassForNext()} >
-                    <FaArrowRight className="arrowButtons" style={{ right: "10px", top: "50%", transform: "translateY(-50%)" }} title="Next photo" />
+                    <FaArrowRight className="arrowButtons" style={{ right: "10px", top: "50%", transform: "translateY(-50%)" }} title="Siguiente foto" />
                   </Link>
                  
                   {/* Navbutton: Top right 'x' to 'close' the image and return to gallery. */}
                   <span className="x">
-                    <Link to={`/#id${c.image.id}`} state={{ highlight: c.image.id }} title="Back to Gallery" >
+                    <Link to={`/#id${c.image.id}`} state={{ highlight: c.image.id }} title="Volver a la Galeria" >
                       <FaTimesCircle style={{ right: "10px", top: "10px" }} />
                     </Link>
                   </span>
@@ -243,17 +245,17 @@ class PostcardTemplate extends React.Component {
                   {/* Navbutton: Fullscreen toggle. */}
                   <span className="fullscreen">
                     {this.state.isFullScreen && (
-                      <FaCompress style={{ right: "10px", bottom: "10px", cursor: "pointer" }} title="Exit full screen mode" onClick={this.exitFullScreenAndRender} />
+                      <FaCompress style={{ right: "10px", bottom: "10px", cursor: "pointer" }} title="Salir de pantalla completa" onClick={this.exitFullScreenAndRender} />
                     )}
                     {!this.state.isFullScreen && (
-                      <FaExpand style={{ right: "10px", bottom: "10px", cursor: "pointer" }} title="Enter full screen mode" onClick={this.enterFullScreenAndRender} />
+                      <FaExpand style={{ right: "10px", bottom: "10px", cursor: "pointer" }} title="Ver en pantalla completa" onClick={this.enterFullScreenAndRender} />
                     )}
                   </span>
 
                   {/* Navbutton: Download image. */}
                   <span className="download">
                     <a href={c.image.fluid.originalImg} download >
-                      <FaDownload style={{ right: "80px", bottom: "12px" }} title="Download photo" />
+                      <FaDownload style={{ right: "80px", bottom: "12px" }} title="Descargar foto" />
                     </a>
                   </span>
 
