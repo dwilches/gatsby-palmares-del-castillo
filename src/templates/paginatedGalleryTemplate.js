@@ -25,6 +25,8 @@ class PaginatedGalleryTemplate extends React.Component {
                 <GlobalStateContext.Consumer>
                     {globalState => (
                         <>
+                            <Footer />
+
                             <View
                                 globalState={globalState}
                                 pageContext={this.props.pageContext}
